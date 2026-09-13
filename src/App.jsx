@@ -1,8 +1,79 @@
-import expenseTrackerImg from "./assets/expense-tracker.png";
-import codepilotImg from "./assets/codepilot-ai.png";
-
 function App() {
   const currentYear = new Date().getFullYear();
+
+  const projects = [
+    {
+      title: "Memora AI",
+      type: "AI Infrastructure",
+      description:
+        "A continuity-first AI system with persistent user state, document retrieval, task management, deterministic tools, and planner-orchestrator architecture designed to make AI assistants remember and reason across interactions.",
+      tech: [
+        "Next.js",
+        "TypeScript",
+        "FastAPI",
+        "PostgreSQL",
+        "pgvector",
+        "Redis",
+        "RAG",
+        "Embeddings",
+      ],
+      github: "https://github.com/Rakshith-028/memora-ai",
+      featured: true,
+    },
+    {
+      title: "AEGIS Autonomous SRE",
+      type: "Autonomous DevOps / SRE",
+      description:
+        "An autonomous incident-response system that collects evidence, performs root-cause analysis, creates incidents, evaluates policy, executes remediation actions, verifies recovery, and generates postmortems.",
+      tech: [
+        "Python",
+        "Autonomous Agents",
+        "RCA",
+        "Incident Response",
+        "Docker",
+        "Observability",
+      ],
+      github: "https://github.com/Rakshith-028/aegis-autonomous-sre",
+    },
+    {
+      title: "Clinic SaaS",
+      type: "Full-Stack SaaS",
+      description:
+        "A SaaS-style clinic management platform with dashboards and structured workflows for clinic operations, built as a modern full-stack web application.",
+      tech: ["Next.js", "React", "TypeScript", "SaaS", "Dashboard"],
+      github: "https://github.com/Rakshith-028/clinic-saas",
+    },
+    {
+      title: "FocusGuard",
+      type: "Computer Vision Desktop App",
+      description:
+        "A Windows desktop productivity app that uses webcam-based computer vision to detect drowsiness and distraction during focused study sessions.",
+      tech: [
+        "Python",
+        "PySide6",
+        "OpenCV",
+        "MediaPipe",
+        "YOLO11",
+        "Computer Vision",
+      ],
+      github: "https://github.com/Rakshith-028/focusguard",
+    },
+    {
+      title: "CodePilot AI",
+      type: "AI Developer Tool",
+      description:
+        "A local-first VS Code AI coding assistant that uses project context to detect code issues, explain code, and generate safer context-aware fixes directly inside the editor.",
+      tech: [
+        "TypeScript",
+        "VS Code API",
+        "RAG",
+        "Embeddings",
+        "Ollama",
+        "AI Coding",
+      ],
+      github: "https://github.com/Rakshith-028/codepilot-ai",
+    },
+  ];
 
   return (
     <>
@@ -37,14 +108,13 @@ function App() {
           </h1>
 
           <p className="hero-description">
-            I build intelligent software, developer tools, and full-stack
-            applications that solve real-world problems.
+            I build AI systems, intelligent developer tools, autonomous
+            software, and full-stack products that solve real-world problems.
           </p>
 
           <div className="hero-buttons">
             <a href="#projects" className="primary-btn">
-              View My Work
-              <span>↘</span>
+              View My Work <span>↘</span>
             </a>
 
             <a href="#contact" className="secondary-btn">
@@ -90,44 +160,42 @@ function App() {
         <section className="about-section reveal" id="about">
           <div className="section-heading">
             <p>About Me</p>
-            <h2>Building things that actually matter.</h2>
+            <h2>Building ambitious software with AI at the core.</h2>
           </div>
 
           <div className="about-grid">
             <div className="about-main">
               <p>
                 I'm a B.Tech Artificial Intelligence & Machine Learning student
-                focused on building software that combines AI, strong
-                engineering, and practical usability.
+                focused on building systems that go beyond basic demos and
+                tutorials.
               </p>
 
               <p>
-                I enjoy working on developer tools, intelligent systems,
-                full-stack applications, and understanding how software works
-                beyond just the interface.
+                My work spans AI infrastructure, autonomous systems, developer
+                tools, computer vision, and full-stack SaaS products.
               </p>
 
               <p>
-                My current focus is on AI engineering, software development,
-                data structures and algorithms, APIs, and project-level system
-                design.
+                I enjoy working on projects where AI is part of the actual
+                architecture — not just added as a chatbot layer.
               </p>
             </div>
 
             <div className="about-side">
               <div className="about-stat">
-                <span>Focus</span>
+                <span>Primary Focus</span>
                 <h3>AI Engineering</h3>
               </div>
 
               <div className="about-stat">
-                <span>Currently</span>
-                <h3>B.Tech AIML</h3>
+                <span>Building</span>
+                <h3>AI Systems + Products</h3>
               </div>
 
               <div className="about-stat">
                 <span>Interested In</span>
-                <h3>Software + AI</h3>
+                <h3>Agents, Infrastructure & SaaS</h3>
               </div>
             </div>
           </div>
@@ -135,114 +203,55 @@ function App() {
 
         <section className="projects-section reveal" id="projects">
           <div className="section-heading">
-            <p>Featured Project</p>
-            <h2>CodePilot AI</h2>
+            <p>Selected Work</p>
+            <h2>Projects</h2>
           </div>
 
-          <div className="featured-project">
-            <div className="project-content">
-              <span className="project-tag">AI Developer Tool</span>
+          <div className="projects-list">
+            {projects.map((project, index) => (
+              <article
+                className={`portfolio-project ${
+                  project.featured ? "featured-portfolio-project" : ""
+                }`}
+                key={project.title}
+              >
+                <div className="project-number">
+                  {String(index + 1).padStart(2, "0")}
+                </div>
 
-              <h3>Local-first AI coding assistant for VS Code</h3>
+                <div className="portfolio-project-content">
+                  <div className="project-title-row">
+                    <div>
+                      <span className="project-type">{project.type}</span>
+                      <h3>{project.title}</h3>
+                    </div>
 
-              <p>
-                CodePilot AI is an AI-powered VS Code extension designed to
-                understand project context, detect syntax and code issues,
-                explain functions, and provide safer, context-aware coding
-                assistance directly inside the editor.
-              </p>
+                    {project.featured && (
+                      <span className="featured-label">Flagship</span>
+                    )}
+                  </div>
 
-              <div className="project-features">
-                <span>TypeScript</span>
-                <span>VS Code API</span>
-                <span>Project Context</span>
-                <span>Error Detection</span>
-                <span>AI Fix Suggestions</span>
-              </div>
+                  <p>{project.description}</p>
 
-              <div className="project-links">
-                <a
-                  href="https://github.com/Rakshith-028/codepilot-ai"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="primary-btn"
-                >
-                  View GitHub
-                </a>
-              </div>
-            </div>
+                  <div className="project-features">
+                    {project.tech.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
 
-            <div className="project-visual">
-              <div className="project-preview codepilot-preview">
-                <img
-                  src={codepilotImg}
-                  alt="CodePilot AI VS Code extension screenshot"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="other-projects reveal">
-          <div className="section-heading">
-            <p>More Work</p>
-            <h2>Other Projects</h2>
-          </div>
-
-          <div className="project-grid">
-            <div className="project-card expense-project">
-              <div className="expense-preview">
-                <img
-                  src={expenseTrackerImg}
-                  alt="Expense Tracker Pro dashboard"
-                />
-              </div>
-
-              <div className="project-card-top">
-                <span>Web Application</span>
-                <span>↗</span>
-              </div>
-
-              <h3>Expense Tracker Pro</h3>
-
-              <p>
-                A personal finance dashboard for tracking transactions,
-                budgets, recurring expenses, analytics, monthly spending,
-                import/export, and dark mode through a clean responsive
-                interface.
-              </p>
-
-              <div className="project-features">
-                <span>JavaScript</span>
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>Local Storage</span>
-              </div>
-
-              <div className="project-links">
-                <a
-                  href="https://github.com/Rakshith-028/EXPENSE-TRACKER"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="secondary-btn"
-                >
-                  GitHub
-                </a>
-
-                <span className="primary-btn disabled-btn">Demo Soon</span>
-              </div>
-            </div>
-
-            <div className="coming-project">
-              <span>Currently Building</span>
-
-              <h3>More ambitious projects are on the way.</h3>
-
-              <p>
-                I'm continuously experimenting with AI engineering, system
-                design, full-stack development, and developer tooling.
-              </p>
-            </div>
+                  <div className="project-links">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="secondary-btn"
+                    >
+                      GitHub ↗
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -258,46 +267,46 @@ function App() {
               <h3>Languages</h3>
 
               <div className="skill-list">
-                <p>C++</p>
                 <p>Python</p>
-                <p>JavaScript</p>
                 <p>TypeScript</p>
+                <p>JavaScript</p>
+                <p>C++</p>
               </div>
             </div>
 
             <div className="skill-category">
               <span>02</span>
-              <h3>Frontend</h3>
-
-              <div className="skill-list">
-                <p>React</p>
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>Responsive Design</p>
-              </div>
-            </div>
-
-            <div className="skill-category">
-              <span>03</span>
               <h3>AI Engineering</h3>
 
               <div className="skill-list">
                 <p>RAG</p>
                 <p>Embeddings</p>
-                <p>Ollama</p>
-                <p>LangChain</p>
+                <p>Vector Search</p>
+                <p>AI Agents</p>
+              </div>
+            </div>
+
+            <div className="skill-category">
+              <span>03</span>
+              <h3>Full Stack</h3>
+
+              <div className="skill-list">
+                <p>React</p>
+                <p>Next.js</p>
+                <p>FastAPI</p>
+                <p>REST APIs</p>
               </div>
             </div>
 
             <div className="skill-category">
               <span>04</span>
-              <h3>Developer Tools</h3>
+              <h3>Tools & Systems</h3>
 
               <div className="skill-list">
                 <p>Git & GitHub</p>
-                <p>VS Code API</p>
-                <p>npm</p>
-                <p>REST APIs</p>
+                <p>PostgreSQL</p>
+                <p>Redis</p>
+                <p>Docker</p>
               </div>
             </div>
           </div>
@@ -344,9 +353,9 @@ function App() {
             </h2>
 
             <p className="contact-description">
-              I'm open to internships, software engineering opportunities,
-              AI/ML projects, collaborations, and interesting technical
-              conversations.
+              I'm open to internships, AI engineering opportunities, software
+              development roles, technical collaborations, and ambitious
+              projects.
             </p>
 
             <div className="contact-buttons">
