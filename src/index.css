@@ -1245,79 +1245,6 @@ button {
   }
 }
 
-.expense-project {
-  overflow: hidden;
-}
-
-.expense-preview {
-  width: 100%;
-  margin-bottom: 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #252525;
-  background: #090909;
-}
-
-.expense-preview img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.expense-project:hover .expense-preview img {
-  transform: scale(1.02);
-}
-
-.resume-disabled,
-.disabled-btn {
-  opacity: 0.45;
-  cursor: default;
-  pointer-events: none;
-}
-.project-preview {
-  width: 100%;
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid #252525;
-  background: #090909;
-}
-
-.project-preview img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.featured-project:hover .project-preview img {
-  transform: scale(1.02);
-}
-
-.expense-project {
-  overflow: hidden;
-}
-
-.expense-preview {
-  width: 100%;
-  margin-bottom: 30px;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid #252525;
-  background: #090909;
-}
-
-.expense-preview img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.expense-project:hover .expense-preview img {
-  transform: scale(1.02);
-}
-
 .resume-disabled,
 .disabled-btn {
   opacity: 0.45;
@@ -1439,3 +1366,82 @@ button {
     gap: 15px;
   }
 }
+
+/* ===== Current Portfolio Project Image Fix ===== */
+
+.resume-disabled,
+.disabled-btn {
+  opacity: 0.45;
+  cursor: default;
+  pointer-events: none;
+}
+
+.project-image-wrap {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 28px;
+
+  aspect-ratio: 16 / 9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid #242424;
+  border-radius: 14px;
+
+  background: #090909;
+}
+
+.project-image-wrap img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: #090909;
+
+  transition: transform 0.35s ease;
+}
+
+.portfolio-project:hover .project-image-wrap img {
+  transform: scale(1.01);
+}
+
+.featured-portfolio-project .project-image-wrap {
+  border-color: #343434;
+}
+
+/* Prevent grid children or large screenshots from forcing horizontal overflow */
+.projects-list,
+.portfolio-project,
+.portfolio-project-content,
+.project-image-wrap {
+  min-width: 0;
+}
+
+.portfolio-project-content {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .project-image-wrap {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+@media (max-width: 700px) {
+  .project-image-wrap {
+    margin-top: 22px;
+    aspect-ratio: 16 / 10;
+    border-radius: 11px;
+  }
+}
+

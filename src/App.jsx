@@ -1,3 +1,9 @@
+import memoraImg from "./assets/memora-ai.png";
+import aegisImg from "./assets/aegis.png";
+import clinicImg from "./assets/clinic-saas.png";
+import focusguardImg from "./assets/focusguard.png";
+import codepilotImg from "./assets/codepilot-ai.png";
+
 function App() {
   const currentYear = new Date().getFullYear();
 
@@ -6,7 +12,7 @@ function App() {
       title: "Memora AI",
       type: "AI Infrastructure",
       description:
-        "A continuity-first AI system with persistent user state, document retrieval, task management, deterministic tools, and planner-orchestrator architecture designed to make AI assistants remember and reason across interactions.",
+        "A continuity-first AI system designed to give assistants persistent memory, contextual retrieval, task continuity, and structured long-term state across interactions.",
       tech: [
         "Next.js",
         "TypeScript",
@@ -18,13 +24,14 @@ function App() {
         "Embeddings",
       ],
       github: "https://github.com/Rakshith-028/memora-ai",
+      image: memoraImg,
       featured: true,
     },
     {
       title: "AEGIS Autonomous SRE",
       type: "Autonomous DevOps / SRE",
       description:
-        "An autonomous incident-response system that collects evidence, performs root-cause analysis, creates incidents, evaluates policy, executes remediation actions, verifies recovery, and generates postmortems.",
+        "An autonomous incident-response system that gathers evidence, performs root-cause analysis, evaluates remediation policies, executes recovery actions, verifies system health, and generates postmortems.",
       tech: [
         "Python",
         "Autonomous Agents",
@@ -34,20 +41,28 @@ function App() {
         "Observability",
       ],
       github: "https://github.com/Rakshith-028/aegis-autonomous-sre",
+      image: aegisImg,
     },
     {
       title: "Clinic SaaS",
       type: "Full-Stack SaaS",
       description:
-        "A SaaS-style clinic management platform with dashboards and structured workflows for clinic operations, built as a modern full-stack web application.",
-      tech: ["Next.js", "React", "TypeScript", "SaaS", "Dashboard"],
+        "A modern clinic management platform designed around real operational workflows including dashboards, patient management, appointments, staff, billing, and structured clinic operations.",
+      tech: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "SaaS",
+        "Dashboard",
+      ],
       github: "https://github.com/Rakshith-028/clinic-saas",
+      image: clinicImg,
     },
     {
       title: "FocusGuard",
       type: "Computer Vision Desktop App",
       description:
-        "A Windows desktop productivity app that uses webcam-based computer vision to detect drowsiness and distraction during focused study sessions.",
+        "A Windows productivity application that uses webcam-based computer vision to detect drowsiness and distraction during focused study sessions.",
       tech: [
         "Python",
         "PySide6",
@@ -57,12 +72,13 @@ function App() {
         "Computer Vision",
       ],
       github: "https://github.com/Rakshith-028/focusguard",
+      image: focusguardImg,
     },
     {
       title: "CodePilot AI",
       type: "AI Developer Tool",
       description:
-        "A local-first VS Code AI coding assistant that uses project context to detect code issues, explain code, and generate safer context-aware fixes directly inside the editor.",
+        "A local-first VS Code AI coding assistant that understands project context, detects code issues, explains code, and generates safer context-aware fixes directly inside the editor.",
       tech: [
         "TypeScript",
         "VS Code API",
@@ -72,6 +88,7 @@ function App() {
         "AI Coding",
       ],
       github: "https://github.com/Rakshith-028/codepilot-ai",
+      image: codepilotImg,
     },
   ];
 
@@ -108,8 +125,8 @@ function App() {
           </h1>
 
           <p className="hero-description">
-            I build AI systems, intelligent developer tools, autonomous
-            software, and full-stack products that solve real-world problems.
+            I build AI systems, autonomous software, developer tools, and
+            full-stack products designed to solve real-world problems.
           </p>
 
           <div className="hero-buttons">
@@ -157,7 +174,7 @@ function App() {
           </div>
         </section>
 
-        <section className="about-section reveal" id="about">
+        <section className="about-section" id="about">
           <div className="section-heading">
             <p>About Me</p>
             <h2>Building ambitious software with AI at the core.</h2>
@@ -178,7 +195,7 @@ function App() {
 
               <p>
                 I enjoy working on projects where AI is part of the actual
-                architecture — not just added as a chatbot layer.
+                architecture, not just added as a surface-level feature.
               </p>
             </div>
 
@@ -201,7 +218,7 @@ function App() {
           </div>
         </section>
 
-        <section className="projects-section reveal" id="projects">
+        <section className="projects-section" id="projects">
           <div className="section-heading">
             <p>Selected Work</p>
             <h2>Projects</h2>
@@ -239,6 +256,13 @@ function App() {
                     ))}
                   </div>
 
+                  <div className="project-image-wrap">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} project preview`}
+                    />
+                  </div>
+
                   <div className="project-links">
                     <a
                       href={project.github}
@@ -255,7 +279,7 @@ function App() {
           </div>
         </section>
 
-        <section className="skills-section reveal" id="skills">
+        <section className="skills-section" id="skills">
           <div className="section-heading">
             <p>What I Work With</p>
             <h2>Skills & Technologies</h2>
@@ -312,7 +336,7 @@ function App() {
           </div>
         </section>
 
-        <section className="education-section reveal">
+        <section className="education-section">
           <div className="section-heading">
             <p>Education</p>
             <h2>Academic Background</h2>
@@ -342,7 +366,7 @@ function App() {
           </div>
         </section>
 
-        <section className="contact-section reveal" id="contact">
+        <section className="contact-section" id="contact">
           <div className="contact-box">
             <p className="contact-small">Let's build something useful.</p>
 
